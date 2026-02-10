@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPC ERP - Dashboard</title>
+  
+  <!-- CoreUI CSS -->
+  <link href="../../dist/css/coreui.min.css" rel="stylesheet">
+  
+  <!-- Custom ERP CSS -->
+  <link href="../assets/css/erp-custom.css" rel="stylesheet">
+  
+  <!-- CoreUI Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/@coreui/icons@3.0.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+    <div class="sidebar-brand d-none d-md-flex">
+      <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
+        <use xlink:href="../../dist/icons/brand.svg#full"></use>
+      </svg>
+      <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
+        <use xlink:href="../../dist/icons/brand.svg#signet"></use>
+      </svg>
+    </div>
+    
+    <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+      <li class="nav-title">Main</li>
+      
+      <li class="nav-item">
+        <a class="nav-link active" href="dashboard.html">
+          <svg class="nav-icon">
+            <use xlink:href="../../dist/icons/free.svg#cil-speedometer"></use>
+          </svg> Dashboard
+        </a>
+      </li>
+      
+      <li class="nav-title">ERP Modules</li>
+      
+      <li class="nav-group">
+        <a class="nav-link nav-group-toggle" href="#">
+          <svg class="nav-icon">
+            <use xlink:href="../../dist/icons/free.svg#cil-puzzle"></use>
+          </svg> Project & WBS
+        </a>
+        <ul class="nav-group-items">
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">
+              <svg class="nav-icon">
+                <use xlink:href="../../dist/icons/free.svg#cil-list"></use>
+              </svg> Project List
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="wbs.html">
+              <svg class="nav-icon">
+                <use xlink:href="../../dist/icons/free.svg#cil-sitemap"></use>
+              </svg> WBS Management
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="budget.html">
+              <svg class="nav-icon">
+                <use xlink:href="../../dist/icons/free.svg#cil-dollar"></use>
+              </svg> Budget Control
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="nav-group">
+        <a class="nav-link nav-group-toggle" href="#">
+          <svg class="nav-icon">
+            <use xlink:href="../../dist/icons/free.svg#cil-cart"></use>
+          </svg> Procurement
+        </a>
+        <ul class="nav-group-items">
+          <li class="nav-item">
+            <a class="nav-link" href="purchase-request.html">
+              <svg class="nav-icon">
+                <use xlink:href="../../dist/icons/free.svg#cil-file"></use>
+              </svg> Purchase Request
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="purchase-order.html">
+              <svg class="nav-icon">
+                <use xlink:href="../../dist/icons/free.svg#cil-file"></use>
+              </svg> Purchase Order
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="progress.html">
+          <svg class="nav-icon">
+            <use xlink:href="../../dist/icons/free.svg#cil-chart-line"></use>
+          </svg> Progress & Billing
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="reports.html">
+          <svg class="nav-icon">
+            <use xlink:href="../../dist/icons/free.svg#cil-chart-pie"></use>
+          </svg> Reports
+        </a>
+      </li>
+      
+      <li class="nav-divider"></li>
+      
+      <li class="nav-title">Account</li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <svg class="nav-icon">
+            <use xlink:href="../../dist/icons/free.svg#cil-user"></use>
+          </svg> Profile
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <svg class="nav-icon">
+            <use xlink:href="../../dist/icons/free.svg#cil-account-logout"></use>
+          </svg> Logout
+        </a>
+      </li>
+    </ul>
+    
+    <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <!-- Header -->
+    <header class="header header-sticky mb-4">
+      <div class="container-fluid">
+        <button class="header-toggler px-md-0 me-md-3" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+          <svg class="icon icon-lg">
+            <use xlink:href="../../dist/icons/free.svg#cil-menu"></use>
+          </svg>
+        </button>
+        
+        <a class="header-brand d-md-none" href="#">
+          <svg width="118" height="46">
+            <use xlink:href="../../dist/icons/brand.svg#full"></use>
+          </svg>
+        </a>
+        
+        <ul class="header-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <svg class="icon icon-lg">
+                <use xlink:href="../../dist/icons/free.svg#cil-bell"></use>
+              </svg>
+              <span class="badge badge-sm bg-danger ms-auto">5</span>
+            </a>
+          </li>
+        </ul>
+        
+        <ul class="header-nav ms-3">
+          <li class="nav-item dropdown">
+            <a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              <div class="avatar avatar-md">
+                <img class="avatar-img" src="../assets/images/avatars/default-avatar.png" alt="user@email.com" onerror="this.src='https://ui-avatars.com/api/?name=Admin&background=321fdb&color=fff'">
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end pt-0">
+              <div class="dropdown-header bg-light py-2">
+                <div class="fw-semibold">Account</div>
+              </div>
+              <a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                  <use xlink:href="../../dist/icons/free.svg#cil-user"></use>
+                </svg> Profile
+              </a>
+              <a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                  <use xlink:href="../../dist/icons/free.svg#cil-settings"></use>
+                </svg> Settings
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                  <use xlink:href="../../dist/icons/free.svg#cil-account-logout"></use>
+                </svg> Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </header>
+    
+    <!-- Body -->
+    <div class="body flex-grow-1 px-3">
+      <div class="container-lg">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+          </ol>
+        </nav>
+        
+        <!-- Page Title -->
+        <div class="mb-4">
+          <h3>EPC ERP Dashboard</h3>
+          <p class="text-medium-emphasis">Overview sistem Construction / EPC Management</p>
+        </div>
+        
+        <!-- Stats Cards -->
+        <div class="row">
+          <!-- Active Projects -->
+          <div class="col-sm-6 col-lg-3">
+            <div class="card mb-4 text-white bg-primary">
+              <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                <div>
+                  <div class="fs-4 fw-semibold">12 <span class="fs-6 fw-normal">Projects</span></div>
+                  <div>Active Projects</div>
+                </div>
+                <div class="dropdown">
+                  <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <svg class="icon">
+                      <use xlink:href="../../dist/icons/free.svg#cil-options"></use>
+                    </svg>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="#">View Details</a>
+                  </div>
+                </div>
+              </div>
+              <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart1" height="70"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pending Approvals -->
+          <div class="col-sm-6 col-lg-3">
+            <div class="card mb-4 text-white bg-warning">
+              <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                <div>
+                  <div class="fs-4 fw-semibold">8 <span class="fs-6 fw-normal">Items</span></div>
+                  <div>Pending Approval</div>
+                </div>
+                <div class="dropdown">
+                  <button class="btn btn-transparent text-white p-0" type="button">
+                    <svg class="icon">
+                      <use xlink:href="../../dist/icons/free.svg#cil-options"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart2" height="70"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Budget Utilization -->
+          <div class="col-sm-6 col-lg-3">
+            <div class="card mb-4 text-white bg-success">
+              <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                <div>
+                  <div class="fs-4 fw-semibold">72% <span class="fs-6 fw-normal">Used</span></div>
+                  <div>Budget Utilization</div>
+                </div>
+                <div class="dropdown">
+                  <button class="btn btn-transparent text-white p-0" type="button">
+                    <svg class="icon">
+                      <use xlink:href="../../dist/icons/free.svg#cil-options"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart3" height="70"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Active POs -->
+          <div class="col-sm-6 col-lg-3">
+            <div class="card mb-4 text-white bg-info">
+              <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                <div>
+                  <div class="fs-4 fw-semibold">24 <span class="fs-6 fw-normal">POs</span></div>
+                  <div>Active Purchase Orders</div>
+                </div>
+                <div class="dropdown">
+                  <button class="btn btn-transparent text-white p-0" type="button">
+                    <svg class="icon">
+                      <use xlink:href="../../dist/icons/free.svg#cil-options"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart4" height="70"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Recent Activities -->
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card mb-4">
+              <div class="card-header">
+                <strong>Recent Activities</strong>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-hover table-striped">
+                    <thead>
+                      <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Project</th>
+                        <th>Status</th>
+                        <th>User</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>10:23</td>
+                        <td>PR Submitted</td>
+                        <td>Project Alpha</td>
+                        <td><span class="badge bg-warning">Pending</span></td>
+                        <td>John Doe</td>
+                      </tr>
+                      <tr>
+                        <td>09:45</td>
+                        <td>PO Approved</td>
+                        <td>Project Beta</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                        <td>Jane Smith</td>
+                      </tr>
+                      <tr>
+                        <td>09:12</td>
+                        <td>Progress Updated</td>
+                        <td>Project Gamma</td>
+                        <td><span class="badge bg-info">Completed</span></td>
+                        <td>Bob Johnson</td>
+                      </tr>
+                      <tr>
+                        <td>08:55</td>
+                        <td>Budget Revision</td>
+                        <td>Project Delta</td>
+                        <td><span class="badge bg-warning">Review</span></td>
+                        <td>Alice Brown</td>
+                      </tr>
+                      <tr>
+                        <td>08:30</td>
+                        <td>WBS Created</td>
+                        <td>Project Epsilon</td>
+                        <td><span class="badge bg-success">Done</span></td>
+                        <td>Charlie Wilson</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-header">
+                <strong>Quick Actions</strong>
+              </div>
+              <div class="card-body">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-primary" type="button">
+                    <svg class="icon me-2">
+                      <use xlink:href="../../dist/icons/free.svg#cil-plus"></use>
+                    </svg>
+                    New Project
+                  </button>
+                  <button class="btn btn-secondary" type="button">
+                    <svg class="icon me-2">
+                      <use xlink:href="../../dist/icons/free.svg#cil-file"></use>
+                    </svg>
+                    Create PR
+                  </button>
+                  <button class="btn btn-info" type="button">
+                    <svg class="icon me-2">
+                      <use xlink:href="../../dist/icons/free.svg#cil-chart-line"></use>
+                    </svg>
+                    Update Progress
+                  </button>
+                  <button class="btn btn-success" type="button">
+                    <svg class="icon me-2">
+                      <use xlink:href="../../dist/icons/free.svg#cil-dollar"></use>
+                    </svg>
+                    Generate Invoice
+                  </button>
+                </div>
+                
+                <hr class="my-3">
+                
+                <h6>Notifications</h6>
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <small class="text-primary">New PR #1234</small>
+                      <small>5m ago</small>
+                    </div>
+                    <small>Awaiting your approval</small>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <small class="text-warning">Budget Alert</small>
+                      <small>1h ago</small>
+                    </div>
+                    <small>Project Alpha exceeding 80%</small>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <small class="text-success">Progress Update</small>
+                      <small>2h ago</small>
+                    </div>
+                    <small>Project Beta at 75% completion</small>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+      <div>
+        <a href="#">EPC ERP</a>
+        <span class="ms-1">&copy; 2024 Construction Management System.</span>
+      </div>
+      <div class="ms-auto">Powered by <a href="https://coreui.io">CoreUI</a></div>
+    </footer>
+  </div>
+  
+  <!-- CoreUI and necessary plugins -->
+  <script src="../../dist/js/coreui.bundle.min.js"></script>
+  
+  <!-- Custom ERP Scripts -->
+  <script src="../assets/js/erp-main.js"></script>
+</body>
+</html>

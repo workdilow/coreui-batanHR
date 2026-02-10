@@ -2,33 +2,68 @@
 
 CoreUI Free Bootstrap Admin for EPC ERP
 
+## ✅ STATUS: CoreUI SUDAH TERINTEGRASI
+
+CoreUI library sudah tersedia di root repository dan terintegrasi dengan ERP system di folder `coreui-erp/`.
+
 ## Directory Structure
 
 ```
 frontend/
-├── coreui/                # CoreUI template files
-│   ├── src/
-│   ├── dist/
-│   └── views/
-├── assets/               # Custom assets
-│   ├── css/
-│   ├── js/
-│   └── images/
+├── coreui-erp/            # ERP Application (menggunakan CoreUI dari root)
+│   ├── pages/             # Halaman-halaman ERP
+│   │   └── dashboard.html # Dashboard ERP
+│   ├── assets/
+│   │   ├── css/
+│   │   │   └── erp-custom.css  # Custom ERP styling
+│   │   ├── js/
+│   │   │   └── erp-main.js     # ERP JavaScript logic
+│   │   └── images/        # ERP images/icons
+│   └── components/        # Reusable ERP components
+├── package.json           # Frontend dependencies
 └── README.md
 ```
 
 ## Setup Instructions
 
-### 1. Clone CoreUI Template
+### 1. Install Dependencies
 
 ```bash
 cd frontend
-git clone https://github.com/coreui/coreui-free-bootstrap-admin-template.git coreui
-cd coreui
 npm install
 ```
 
-### 2. CoreUI to ERP Mapping
+### 2. Run Development Server
+
+```bash
+npm run dev
+```
+
+Akses dashboard di: http://localhost:3000/dashboard.html
+
+### 3. Build for Production
+
+```bash
+npm run build
+```
+
+## CoreUI Integration
+
+### CoreUI Library Location
+- **CoreUI CSS**: `../../dist/css/coreui.min.css` (dari root repository)
+- **CoreUI JS**: `../../dist/js/coreui.bundle.min.js`
+- **CoreUI Icons**: `../../dist/icons/`
+
+### Halaman ERP yang Sudah Dibuat
+
+1. **Dashboard** (`coreui-erp/pages/dashboard.html`)
+   - Overview sistem
+   - Statistics cards (Projects, Approvals, Budget, POs)
+   - Recent activities table
+   - Quick actions panel
+   - Notifications
+
+## CoreUI to ERP Mapping
 
 | ERP Feature | CoreUI Component |
 |-------------|------------------|

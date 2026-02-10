@@ -1,0 +1,26 @@
+{
+  "name": "coreui-erp-frontend",
+  "version": "1.0.0",
+  "description": "EPC ERP Frontend using CoreUI",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server pages/ --port=3000",
+    "build": "echo 'Build process will be added'",
+    "test": "echo 'Tests will be added'"
+  },
+  "keywords": [
+    "erp",
+    "epc",
+    "construction",
+    "coreui"
+  ],
+  "author": "EPC ERP Team",
+  "license": "Proprietary",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "@coreui/coreui": "^5.5.0",
+    "bootstrap": "^5.3.0"
+  }
+}

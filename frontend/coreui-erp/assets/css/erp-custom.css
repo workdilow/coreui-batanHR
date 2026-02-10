@@ -1,0 +1,245 @@
+/* EPC ERP Custom Styles */
+
+:root {
+  --erp-primary: #321fdb;
+  --erp-secondary: #9da5b1;
+  --erp-success: #2eb85c;
+  --erp-warning: #f9b115;
+  --erp-danger: #e55353;
+  --erp-info: #39f;
+}
+
+/* Custom Sidebar Styling */
+.sidebar {
+  --cui-sidebar-brand-height: 4rem;
+}
+
+.sidebar-brand {
+  padding: 1rem 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ERP Module Colors */
+.nav-item.project-module .nav-link {
+  border-left: 3px solid var(--erp-primary);
+}
+
+.nav-item.procurement-module .nav-link {
+  border-left: 3px solid var(--erp-warning);
+}
+
+.nav-item.finance-module .nav-link {
+  border-left: 3px solid var(--erp-success);
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+  transition: transform 0.2s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Status Badges */
+.badge.status-draft {
+  background-color: #9da5b1;
+}
+
+.badge.status-submitted {
+  background-color: #39f;
+}
+
+.badge.status-approved {
+  background-color: #2eb85c;
+}
+
+.badge.status-rejected {
+  background-color: #e55353;
+}
+
+.badge.status-pending {
+  background-color: #f9b115;
+}
+
+/* Budget Progress Bar */
+.budget-progress {
+  height: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.budget-progress.over-budget {
+  background-color: var(--erp-danger) !important;
+}
+
+.budget-progress.near-limit {
+  background-color: var(--erp-warning) !important;
+}
+
+/* Table Enhancements */
+.table-erp {
+  font-size: 0.875rem;
+}
+
+.table-erp thead {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.table-erp tbody tr:hover {
+  background-color: #f1f3f5;
+  cursor: pointer;
+}
+
+/* Quick Action Buttons */
+.quick-action-btn {
+  padding: 1rem;
+  text-align: left;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.quick-action-btn:hover {
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Project Status Indicators */
+.project-status {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.project-status.active {
+  background-color: var(--erp-success);
+  box-shadow: 0 0 8px var(--erp-success);
+}
+
+.project-status.on-hold {
+  background-color: var(--erp-warning);
+}
+
+.project-status.completed {
+  background-color: var(--erp-info);
+}
+
+/* WBS Tree Styling */
+.wbs-tree {
+  list-style: none;
+  padding-left: 0;
+}
+
+.wbs-tree li {
+  padding: 0.5rem;
+  border-left: 2px solid #e5e7eb;
+  margin-left: 1rem;
+}
+
+.wbs-tree li:hover {
+  background-color: #f8f9fa;
+}
+
+/* Workflow Status Line */
+.workflow-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.workflow-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.workflow-step::after {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #e5e7eb;
+  z-index: -1;
+}
+
+.workflow-step:last-child::after {
+  display: none;
+}
+
+.workflow-step.completed .workflow-icon {
+  background-color: var(--erp-success);
+  color: white;
+}
+
+.workflow-step.active .workflow-icon {
+  background-color: var(--erp-primary);
+  color: white;
+}
+
+.workflow-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e5e7eb;
+  margin-bottom: 0.5rem;
+}
+
+/* Approval Modal */
+.approval-form {
+  padding: 1.5rem;
+}
+
+.approval-form .form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Budget Chart Container */
+.budget-chart-container {
+  height: 300px;
+  padding: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    --cui-sidebar-width: 16rem;
+  }
+  
+  .workflow-status {
+    flex-direction: column;
+  }
+  
+  .workflow-step::after {
+    width: 2px;
+    height: 100%;
+    left: 1.5rem;
+    top: 50%;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .sidebar,
+  .header,
+  .footer,
+  .quick-action-btn {
+    display: none;
+  }
+  
+  .wrapper {
+    margin: 0;
+  }
+}
